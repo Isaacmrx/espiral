@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fuegos flotantes ENCODED</title>
+</head>
+<body>
+
+  <css-doodle>
+    <style>
+    --color: #DA00DA, #F44335, #e74c3c, #FFFC8B;/*#DA00DA"nuevo",#3498db"original",#F44335"nuevo",#FFFC8B"nuevo",#9b59b6"original" */
+  
+    @grid: 30x1 / 100vw 100vh / #2c3e50; 
+    
+    :container {
+      perspective: 30vmin;
+      --deg: @p(-180deg, 180deg);
+    }
+    
+    :after, :before {
+      content: '🔥'; /* Cambiado de corazón a emoji de fuego */
+      color: @p(--color); 
+      @place: @r(100%) @r(100%);
+      @size: @r(6px);
+    }
+  
+    @place: center;
+    @size: 18vmin; 
+  
+    box-shadow: @m2(0 0 50px @p(--color));
+    background: @m100(
+      radial-gradient(@p(--color) 50%, transparent 0) 
+      @r(-20%, 120%) @r(-20%, 100%) / 1px 1px
+      no-repeat
+    );
+  
+    will-change: transform, opacity;
+    animation: scale-up 12s linear infinite;
+    animation-delay: calc(-12s / @I * @i);
+  
+    @keyframes scale-up {
+      0%, 95.01%, 100% {
+        transform: translateZ(0) rotate(0);
+        opacity: 0;
+      }
+      10% { 
+        opacity: 1; 
+      }
+      95% {
+        transform: 
+          translateZ(35vmin) rotateZ(var(--deg));
+      }
+    }
+  </style></css-doodle>
+
+<script src='script.js'></script>
+</body>
+</html>
