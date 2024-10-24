@@ -3,6 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>Fuegos flotantes ENCODED</title>
+  <style>
+    html, body {
+      margin: 0; /* Elimina márgenes */
+      padding: 0; /* Elimina rellenos */
+      height: 100%; /* Asegúrate de que el body ocupe el 100% de la altura */
+      overflow: hidden; /* Evita el scroll si hay contenido adicional */
+      display: flex; /* Usar flexbox para centrar el contenido */
+      justify-content: center; /* Centrar horizontalmente */
+      align-items: center; /* Centrar verticalmente */
+    }
+
+    css-doodle {
+      width: 100vw; /* Ancho completo de la ventana */
+      height: 100vh; /* Alto completo de la ventana */
+      display: block; /* Asegúrate de que se comporte como un bloque */
+    }
+    .text {
+      position: absolute; /* Posición absoluta para centrar el texto */
+      color: white; /* Color del texto */
+      font-size: 2rem; /* Tamaño del texto */
+      animation: move-up 12s linear infinite; /* Animación del texto */
+      opacity: 1; /* Opacidad inicial */
+      text-shadow: 
+        0 0 5px #FF4500, 
+        0 0 10px #FF4500, 
+        0 0 15px #FFD700, 
+        0 0 20px #FFD700, 
+        0 0 30px #FF4500, 
+        0 0 40px #FF4500; /* Sombras para simular llamas */
+    }
+    @keyframes move-up {
+      0% {
+        transform: translateY(0); /* Comienza en su posición original */
+        opacity: 1; /* Totalmente visible */
+      }
+      10% {
+        opacity: 1; /* Totalmente visible */
+      }
+      90% {
+        transform: translateY(-100px); /* Mueve hacia arriba */
+        opacity: 0; /* Desaparece gradualmente */
+      }
+      100% {
+        transform: translateY(-100px); /* Mantiene la posición final */
+        opacity: 0; /* Totalmente invisible */
+      }
+    }
+    @keyframes flame {
+      0%, 100% {
+        text-shadow: 
+          0 0 5px #FF4500, 
+          0 0 10px #FF4500, 
+          0 0 15px #FFD700, 
+          0 0 20px #FFD700, 
+          0 0 30px #FF4500, 
+          0 0 40px #FF4500; /* Sombras brillantes */
+      }
+      50% {
+        text-shadow: 
+          0 0 10px #FF4500, 
+          0 0 20px #FF4500, 
+          0 0 25px #FFD700, 
+          0 0 30px #FFD700, 
+          0 0 40px #FF4500, 
+          0 0 50px #FF4500; /* Sombras más intensas para simular el efecto de llamas */
+      }
+    }
+
+  </style>
 </head>
 <body>
 
@@ -18,7 +87,7 @@
     }
     
     :after, :before {
-      content: '🔥'; /* Cambiado de corazón a emoji de fuego */
+      content: '🔥' ; /* Cambiado de corazón a emoji de fuego */
       color: @p(--color); 
       @place: @r(100%) @r(100%);
       @size: @r(6px);
@@ -51,7 +120,10 @@
           translateZ(35vmin) rotateZ(var(--deg));
       }
     }
-  </style></css-doodle>
+  </style>
+</css-doodle>
+
+<div class="text">¡100DIAS DE RACHA HP🥳 <img src="colombia.png" alt="Bandera de Colombia" style="width: 30px; height: auto;"> <img src="mexico.png" alt="Bandera de México" style="width: 30px; height: auto;">!</div>
 
 <script src='script.js'></script>
 </body>
